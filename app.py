@@ -20,7 +20,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("Chọn ảnh chứa nguyên liệu")
     # Cho phép chọn camera hoặc upload file
-    tab_cam, tab_upload = st.tabs(["Camera", ""])
+    tab_cam, tab_upload = st.tabs(["Camera", "Tải lên"])
     image_input = None
     with tab_cam:
         cam_img = st.camera_input("Chụp ảnh")
