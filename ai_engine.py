@@ -25,8 +25,8 @@ def suggest_recipes(ingredients_list):
     ingredients_str = ", ".join(ingredients_list)
 
     prompt = f"""
-    Với các nguyên liệu sau: {ingredients_str}, hãy gợi ý 3 món ăn Việt Nam phù hợp.
-    Ưu tiên các món đơn giản, gia đình (như Canh trứng cà chua).
+    Với các nguyên liệu sau: {ingredients_str}, hãy gợi ý 3 món ăn Việt Nam phù hợp. Có thể gợi ý thêm 3 món ăn nước ngoài nếu được.
+    Với món ăn Việt Nam, ưu tiên các món đơn giản, gia đình (như Canh trứng cà chua).
     Trả về kết quả dưới dạng JSON Schema sau:
     [
         {{
