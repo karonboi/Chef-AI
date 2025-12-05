@@ -10,8 +10,8 @@ def identify_ingredients(image):
     model = genai.GenerativeModel('gemini-2.5-flash')
     prompt = """
     Hãy đóng vai một chuyên gia ẩm thực. Nhìn vào bức ảnh này và liệt kê tất cả các nguyên liệu thực phẩm có thể nhìn thấy.
-    Bỏ qua các vật dụng không phải thực phẩm.
-    Trả về kết quả dưới dạng một danh sách JSON thuần túy, ví dụ: ["Trứng", "Cà chua", "Hành lá"].
+    Có thể liệt kê thêm thực phẩm đã qua chế biến hoặc đóng gói sẵn. Bỏ qua các vật dụng không phải thực phẩm.
+    Trả về kết quả dưới dạng một danh sách JSON thuần túy, ví dụ: ["Trứng", "Cà chua", "Hành lá"]. Trả về ["Empty"] nếu không nhận diện được nguyên liệu nào.
     Không thêm bất kỳ định dạng markdown nào khác.
     """
     response = model.generate_content([prompt, image])
