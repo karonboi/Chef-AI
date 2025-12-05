@@ -5,6 +5,7 @@ from ai_engine import identify_ingredients, suggest_recipes
 
 # Cấu hình trang
 st.set_page_config(page_title="Smart Fridge Chef", layout="wide")
+noIngredientsFound = False
 
 # Khởi tạo Session State
 if 'ingredients' not in st.session_state:
@@ -36,23 +37,28 @@ with col1:
         if st.button("🔍 Phân tích nguyên liệu", type="primary"):
             with st.spinner("Chef AI đang nhận diện nguyên liệu..."):
                 detected = identify_ingredients(img)
-                st.session_state['ingredients'] = detected
-                st.success("Đã nhận diện nguyên liệu xong! Hãy về đầu trang để xem kết quả.")
+                if not detected  == ["Empty"]:
+                    st.session_state['ingredients'] = detected
+                    st.success("Đã nhận diện nguyên liệu xong! Hãy về đầu trang để xem kết quả.")
+                else:
+                    noIngredientsFound = True
+                    st.error("Không nhận diện được nguyên liệu. Hãy thử đổi góc chụp hay chọn ảnh khác.")
 
 # Cột phải: Kết quả và Công thức
 with col2:
-    if st.session_state['ingredients']:
-        st.subheader("Xác nhận nguyên liệu")
-        # Cho phép người dùng chỉnh sửa danh sách (Human-in-the-loop)
-        final_ingredients = st.multiselect(
-            "Đây là những nguyên liệu mà tôi thấy được. Bạn có thể chỉnh sửa lại danh sách nếu cần.",
-            options=st.session_state['ingredients'] + ["other"],  # Gợi ý thêm
-            default=st.session_state['ingredients']
-        )
-        if st.button("👨‍🍳 Gợi ý món ăn ngay!"):
-            with st.spinner("Chef AI đang suy nghĩ công thức..."):
-                recipes = suggest_recipes(final_ingredients)
-                st.session_state['recipes'] = recipes
+    if noIngredientsFound == False:
+        if st.session_state['ingredients']:
+            st.subheader("Xác nhận nguyên liệu")
+            # Cho phép người dùng chỉnh sửa danh sách (Human-in-the-loop)
+            final_ingredients = st.multiselect(
+                "Đây là những nguyên liệu mà tôi thấy được. Bạn có thể chỉnh sửa lại danh sách nếu cần.",
+                options=st.session_state['ingredients']  # Gợi ý thêm
+                default=st.session_state['ingredients']
+            )
+            if st.button("👨‍🍳 Gợi ý món ăn ngay!"):
+                with st.spinner("Chef AI đang suy nghĩ công thức..."):
+                    recipes = suggest_recipes(final_ingredients)
+                    st.session_state['recipes'] = recipes
 
     # Hiển thị danh sách món ăn
     if st.session_state['recipes']:
