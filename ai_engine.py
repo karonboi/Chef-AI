@@ -38,7 +38,7 @@ def suggest_recipes(ingredients_list):
             "huong_dan": ["Bước 1", "Bước 2"]
         }}
     ]
-    Trong trường hợp có nguyên liệu không phù hợp trong một số món ăn, đặt emoji dấu X hộp đỏ kế bên tên nguyên liệu đó khi liệt kê lại trong các món ăn trên.
+    Trong trường hợp có nguyên liệu không phù hợp trong một số món ăn, gạch ngang tên nguyên liệu đó khi liệt kê lại trong các món ăn trên.
     """
 
     response = model.generate_content(
