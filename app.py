@@ -52,7 +52,7 @@ with col2:
             # Cho phép người dùng chỉnh sửa danh sách (Human-in-the-loop)
             final_ingredients = st.multiselect(
                 "Đây là những nguyên liệu mà tôi thấy được. Bạn có thể chỉnh sửa lại danh sách nếu cần.",
-                options=st.session_state['ingredients']  # Gợi ý thêm
+                options=st.session_state['ingredients'],  # Gợi ý thêm
                 default=st.session_state['ingredients']
             )
             if st.button("👨‍🍳 Gợi ý món ăn ngay!"):
