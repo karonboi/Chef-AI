@@ -39,7 +39,7 @@ with col1:
                 detected = identify_ingredients(img)
                 if not detected  == ["Empty"]:
                     st.session_state['ingredients'] = detected
-                    st.success("Đã nhận diện nguyên liệu xong! Hãy về đầu trang để xem kết quả.")
+                    st.success("Đã nhận diện nguyên liệu xong! Hãy về đầu trang để xem kết quả nếu bạn đang dùng máy tính.")
                 else:
                     noIngredientsFound = True
                     st.error("Không nhận diện được nguyên liệu. Hãy thử đổi góc chụp hay chọn ảnh khác.")
