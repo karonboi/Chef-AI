@@ -39,7 +39,7 @@ with col1:
                 detected = identify_ingredients(img)
                 if not detected  == ["Empty"]:
                     st.session_state['ingredients'] = detected
-                    st.success("Đã nhận diện nguyên liệu xong! Hãy về đầu trang để xem kết quả nếu bạn đang dùng máy tính.")
+                    st.success("Đã nhận diện nguyên liệu xong!")
                 else:
                     noIngredientsFound = True
                     st.error("Không nhận diện được nguyên liệu. Hãy thử đổi góc chụp hay chọn ảnh khác.")
@@ -72,8 +72,6 @@ with col2:
                     st.markdown("### Nguyên liệu cần:")
                     for item in final_ingredients:
                         st.markdown(f"- ✅ {item}")
-                    for item in recipe['nguyen_lieu_can_them']:
-                        st.markdown(f"- 🛒 {item} (Bổ sung)")
                 with c2:
                     st.markdown("### Cách làm:")
                     for idx, step in enumerate(recipe['huong_dan']):
