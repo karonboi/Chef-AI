@@ -38,6 +38,7 @@ def suggest_recipes(ingredients_list):
             "huong_dan": ["Bước 1", "Bước 2"]
         }}
     ]
+    Hãy đảm bảo rằng các món ăn trong danh sách trên có thể được làm chỉ bằng những nguyên liệu đã được liệt kê ở trên.
     Trong trường hợp có nguyên liệu không phù hợp trong một số món ăn, gạch ngang tên nguyên liệu đó khi liệt kê lại trong các món ăn trên.
     """
 
