@@ -35,7 +35,6 @@ def suggest_recipes(ingredients_list):
             "mo_ta": "Mô tả ngắn",
             "thoi_gian": "Thời gian nấu bằng phút (chỉ ghi số)",
             "do_kho": "Dễ/Trung bình/Khó",
-            "nguyen_lieu_can_them": ["Gia vị bổ sung"],
             "huong_dan": ["Bước 1", "Bước 2"]
         }}
     ]
