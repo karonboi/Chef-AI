@@ -15,7 +15,8 @@ if 'recipes' not in st.session_state:
 
 st.title("🍳 Chef AI - Trợ Lý Bếp Thông Minh")
 
-col1, col2 =st.tabs(2)
+col1 = st.container()
+col2 = st.container()
 
 with col1:
     st.subheader("Chọn ảnh chứa nguyên liệu")
