@@ -15,6 +15,8 @@ if 'recipes' not in st.session_state:
 
 st.title("🍳 Chef AI - Trợ Lý Bếp Thông Minh")
 
+col1, col2 =st.tabs(2)
+
 with col1:
     st.subheader("Chọn ảnh chứa nguyên liệu")
     # Cho phép chọn camera hoặc upload file
